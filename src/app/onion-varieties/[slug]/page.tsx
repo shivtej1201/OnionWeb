@@ -8,8 +8,9 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const product = onionProducts.find((p) => p.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const product = onionProducts.find((p) => p.slug === resolvedParams.slug);
   if (!product) return { title: 'Product Not Found' };
   
   return {
@@ -18,8 +19,9 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   };
 }
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
-  const product = onionProducts.find((p) => p.slug === params.slug);
+export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const product = onionProducts.find((p) => p.slug === resolvedParams.slug);
 
   if (!product) {
     notFound();

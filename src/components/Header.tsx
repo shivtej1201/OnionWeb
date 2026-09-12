@@ -75,33 +75,33 @@ export default function Header() {
 
         {/* Mobile Navigation Dropdown */}
         {isMobileMenuOpen && (
-          <div className="absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-xl lg:hidden flex flex-col px-4 py-6 gap-4 z-40 max-h-[calc(100vh-80px)] overflow-y-auto">
-            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-800 font-bold text-lg border-b border-gray-100 pb-2">Home</Link>
-            <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-800 font-bold text-lg border-b border-gray-100 pb-2">About Us</Link>
+          <div className="fixed top-[72px] left-0 w-full h-[calc(100vh-72px)] bg-white border-t border-gray-100 shadow-2xl lg:hidden flex flex-col px-6 py-8 gap-6 z-[100] overflow-y-auto">
+            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-800 font-bold text-xl border-b border-gray-100 pb-3">Home</Link>
+            <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-800 font-bold text-xl border-b border-gray-100 pb-3">About Us</Link>
             
-            <div className="border-b border-gray-100 pb-2">
+            <div className="border-b border-gray-100 pb-3">
               <button 
                 onClick={() => setIsProductsOpen(!isProductsOpen)} 
-                className="flex items-center justify-between w-full text-gray-800 font-bold text-lg"
+                className="flex items-center justify-between w-full text-gray-800 font-bold text-xl"
               >
-                Our Products <ChevronDown className={`w-5 h-5 transition-transform ${isProductsOpen ? 'rotate-180' : ''}`} />
+                Our Products <ChevronDown className={`w-6 h-6 transition-transform ${isProductsOpen ? 'rotate-180' : ''}`} />
               </button>
               {isProductsOpen && (
-                <div className="flex flex-col gap-2 pt-3 pl-4">
-                  <Link href="/onion-varieties/red-onion" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 font-semibold py-1">Nashik Red Onion</Link>
+                <div className="flex flex-col gap-3 pt-4 pl-4 border-l-2 border-gray-100 ml-2 mt-2">
+                  <Link href="/onion-varieties/red-onion" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 font-semibold text-lg py-1">Nashik Red Onion</Link>
                 </div>
               )}
             </div>
 
-            <Link href="/quality-grading" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-800 font-bold text-lg border-b border-gray-100 pb-2">Quality & Grading</Link>
-            <Link href="/packaging" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-800 font-bold text-lg border-b border-gray-100 pb-2">Packaging</Link>
+            <Link href="/quality-grading" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-800 font-bold text-xl border-b border-gray-100 pb-3">Quality & Grading</Link>
+            <Link href="/packaging" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-800 font-bold text-xl border-b border-gray-100 pb-3">Packaging</Link>
             
-            <div className="flex flex-col gap-3 mt-4">
-              <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="bg-[#5c1a1b] text-white text-center px-6 py-3 rounded-lg font-bold hover:bg-[#4a1516]">
+            <div className="flex flex-col gap-4 mt-6">
+              <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="bg-[#5c1a1b] text-white text-center px-6 py-4 rounded-xl font-bold hover:bg-[#4a1516] text-lg shadow-lg">
                 Get a Quote
               </Link>
-              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white text-center px-6 py-3 rounded-lg font-bold hover:bg-green-700 flex justify-center items-center gap-2">
-                <MessageCircle className="w-5 h-5" /> WhatsApp Us
+              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white text-center px-6 py-4 rounded-xl font-bold hover:bg-green-700 flex justify-center items-center gap-2 text-lg shadow-lg">
+                <MessageCircle className="w-6 h-6" /> WhatsApp Us
               </a>
             </div>
           </div>
