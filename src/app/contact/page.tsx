@@ -96,13 +96,9 @@ function ContactFormContent() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Onion Variety</label>
-                    <select name="product" defaultValue={prefilledProduct} className="w-full bg-gray-50 border-gray-200 rounded-xl shadow-sm focus:ring-[#5c1a1b] focus:border-[#5c1a1b] p-3 border transition-colors">
-                      <option value="">Select Variety</option>
-                      <option value="red-onion">Red Onion</option>
-                      <option value="white-onion">White Onion</option>
-                      <option value="pink-onion">Pink Onion</option>
-                      <option value="small-onion">Small Onion</option>
-                    </select>
+                  <select name="product" defaultValue="red-onion" className="w-full bg-gray-50 border-gray-200 rounded-xl shadow-sm focus:ring-[#5c1a1b] focus:border-[#5c1a1b] p-3 border transition-colors">
+                    <option value="red-onion">Red Onion</option>
+                  </select>
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Required Quantity (MT)</label>

@@ -45,9 +45,6 @@ export default function Header() {
             <div className="absolute top-full left-0 mt-0 w-56 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left group-hover:translate-y-0 translate-y-2 overflow-hidden">
               <div className="p-2 flex flex-col gap-1">
                 <Link href="/onion-varieties/red-onion" className="block px-4 py-2.5 hover:bg-gray-50 rounded-lg transition-colors">Nashik Red Onion</Link>
-                <Link href="/onion-varieties/white-onion" className="block px-4 py-2.5 hover:bg-gray-50 rounded-lg transition-colors">White Onion</Link>
-                <Link href="/onion-varieties/pink-onion" className="block px-4 py-2.5 hover:bg-gray-50 rounded-lg transition-colors">Pink Onion</Link>
-                <Link href="/onion-varieties/small-onion" className="block px-4 py-2.5 hover:bg-gray-50 rounded-lg transition-colors">Small / Sambar Onion</Link>
               </div>
             </div>
           </div>

@@ -33,9 +33,6 @@ export default function Footer() {
           <h4 className="font-bold text-lg mb-6 text-white uppercase tracking-wider text-sm">Products</h4>
           <ul className="space-y-3 text-sm text-gray-400 font-medium">
             <li><Link href="/onion-varieties/red-onion" className="hover:text-white transition-colors">Nashik Red Onion</Link></li>
-            <li><Link href="/onion-varieties/white-onion" className="hover:text-white transition-colors">Dehydration White Onion</Link></li>
-            <li><Link href="/onion-varieties/pink-onion" className="hover:text-white transition-colors">Commercial Pink Onion</Link></li>
-            <li><Link href="/onion-varieties/small-onion" className="hover:text-white transition-colors">Sambar / Small Onion</Link></li>
           </ul>
         </div>
         
@@ -65,8 +62,8 @@ export default function Footer() {
       <div className="container mx-auto px-4 max-w-7xl pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-medium">
         <p>&copy; {new Date().getFullYear()} NashikOnion B2B. All rights reserved.</p>
         <div className="flex gap-4 mt-4 md:mt-0">
-          <Link href="#" className="hover:text-white">Privacy Policy</Link>
-          <Link href="#" className="hover:text-white">Terms of Service</Link>
+          <Link href="/" className="hover:text-white">Privacy Policy</Link>
+          <Link href="/" className="hover:text-white">Terms of Service</Link>
         </div>
       </div>
     </footer>
