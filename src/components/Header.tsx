@@ -1,7 +1,13 @@
+'use client';
+
 import Link from 'next/link';
-import { Phone, MessageCircle, Mail, Menu, ChevronDown } from 'lucide-react';
+import { useState } from 'react';
+import { Mail, MapPin, Phone, MessageCircle, Menu, X, ChevronDown } from 'lucide-react';
 
 export default function Header() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
+
   return (
     <header className="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-100">
       {/* Top Bar for quick contact */}
@@ -25,16 +31,17 @@ export default function Header() {
       </div>
       
       {/* Main Navigation */}
-      <div className="container mx-auto px-4 py-4 max-w-7xl flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-2">
+      <div className="container mx-auto px-4 py-4 max-w-7xl flex justify-between items-center relative">
+        <Link href="/" className="flex items-center gap-2 z-50">
           <div className="w-10 h-10 bg-[#5c1a1b] rounded-lg flex items-center justify-center">
             <span className="text-white font-bold text-xl">N</span>
           </div>
           <span className="text-2xl font-black tracking-tight text-gray-900">
-            Nashik<span className="text-[#5c1a1b]">Onion</span><span className="text-sm font-semibold text-gray-500 ml-1">B2B</span>
+            Nashik<span className="text-[#5c1a1b]">Onion</span><span className="text-sm font-semibold text-gray-500 ml-1 hidden sm:inline">B2B</span>
           </span>
         </Link>
         
+        {/* Desktop Nav */}
         <nav className="hidden lg:flex space-x-8 text-gray-700 font-semibold items-center text-sm">
           <Link href="/" className="hover:text-[#5c1a1b] transition-colors">Home</Link>
           <Link href="/about" className="hover:text-[#5c1a1b] transition-colors">About Us</Link>
@@ -59,9 +66,46 @@ export default function Header() {
         </div>
 
         {/* Mobile menu button */}
-        <button className="lg:hidden text-gray-900 p-2">
-          <Menu className="w-6 h-6" />
+        <button 
+          className="lg:hidden text-gray-900 p-2 z-50"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
+
+        {/* Mobile Navigation Dropdown */}
+        {isMobileMenuOpen && (
+          <div className="absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-xl lg:hidden flex flex-col px-4 py-6 gap-4 z-40 max-h-[calc(100vh-80px)] overflow-y-auto">
+            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-800 font-bold text-lg border-b border-gray-100 pb-2">Home</Link>
+            <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-800 font-bold text-lg border-b border-gray-100 pb-2">About Us</Link>
+            
+            <div className="border-b border-gray-100 pb-2">
+              <button 
+                onClick={() => setIsProductsOpen(!isProductsOpen)} 
+                className="flex items-center justify-between w-full text-gray-800 font-bold text-lg"
+              >
+                Our Products <ChevronDown className={`w-5 h-5 transition-transform ${isProductsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {isProductsOpen && (
+                <div className="flex flex-col gap-2 pt-3 pl-4">
+                  <Link href="/onion-varieties/red-onion" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 font-semibold py-1">Nashik Red Onion</Link>
+                </div>
+              )}
+            </div>
+
+            <Link href="/quality-grading" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-800 font-bold text-lg border-b border-gray-100 pb-2">Quality & Grading</Link>
+            <Link href="/packaging" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-800 font-bold text-lg border-b border-gray-100 pb-2">Packaging</Link>
+            
+            <div className="flex flex-col gap-3 mt-4">
+              <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="bg-[#5c1a1b] text-white text-center px-6 py-3 rounded-lg font-bold hover:bg-[#4a1516]">
+                Get a Quote
+              </Link>
+              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white text-center px-6 py-3 rounded-lg font-bold hover:bg-green-700 flex justify-center items-center gap-2">
+                <MessageCircle className="w-5 h-5" /> WhatsApp Us
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );
